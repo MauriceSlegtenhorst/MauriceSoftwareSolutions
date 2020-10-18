@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\02. Application\Infrastructure\MSS.Application.Infrastructure.Persistence\MSS.Application.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\03.Domain\Common\MSS.Domain.Common.Interfaces\MSS.Domain.Common.Interfaces.csproj" />
+    <ProjectReference Include="..\..\03.Domain\Concrete\MSS.Domain.Concrete.DatabaseModels\MSS.Domain.Concrete.DatabaseEntities.csproj" />
+  </ItemGroup>
+
+</Project>
