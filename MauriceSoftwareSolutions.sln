@@ -8,30 +8,67 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Presentation", "01. Presentation", "{76D04C2C-6096-4AD5-8CF1-516E289A10CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Concrete", "Concrete", "{CE80AD0C-8D8B-40B2-83DC-9BD5F0F13321}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Business", "02. Business", "{09F65F74-7D2A-49D1-8614-F6989713AD39}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Application", "02. Application", "{09F65F74-7D2A-49D1-8614-F6989713AD39}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{5640D2B9-7B46-4B84-8BBF-836B4FC2D425}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Concrete", "Concrete", "{E182B9E5-7570-41F2-A640-F8E3D9DEC64A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{BBFBC4E4-3475-4A83-B412-45FE7B10ECFB}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Persistence", "03. Persistence", "{C77BB288-D39D-4E56-89B1-8D33EFBF1872}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Concrete", "Concrete", "{6614532E-CEA8-480C-BB08-4CEEA7DA468B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Persistence", "04. Persistence", "{C77BB288-D39D-4E56-89B1-8D33EFBF1872}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Concrete", "Concrete", "{C6B468A1-D281-4379-BC90-CBA8E23CF6B8}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BF696B4A-F2DC-44EA-8A1C-F4B566E1A436}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{FC143ABB-5E8D-49A0-9457-EAF5223203A1}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{42FBB335-42BA-4C36-ADF5-5BADD8D3C919}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{53FC64C3-59D7-4EFE-A31B-EE2C8E202B43}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{DC328EB0-3965-4117-A0B8-E08726D640BE}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Domain", "03. Domain", "{881286FB-5E30-48A6-9F4E-9381CF00D2A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Concrete", "Concrete", "{DCD33BE2-932D-4B93-B36E-327A9B2443DE}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Infrastructure", "05. Infrastructure", "{779D85C4-72B6-4459-B6E8-0A5F4CC3E176}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FC4F7372-0652-49FE-9E3D-4E599235CC6B}"
+	ProjectSection(SolutionItems) = preProject
+		Placeholder.txt = Placeholder.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
@@ -40,15 +77,15 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CE80AD0C-8D8B-40B2-83DC-9BD5F0F13321} = {76D04C2C-6096-4AD5-8CF1-516E289A10CB}
 		{5640D2B9-7B46-4B84-8BBF-836B4FC2D425} = {09F65F74-7D2A-49D1-8614-F6989713AD39}
-		{E182B9E5-7570-41F2-A640-F8E3D9DEC64A} = {09F65F74-7D2A-49D1-8614-F6989713AD39}
 		{BBFBC4E4-3475-4A83-B412-45FE7B10ECFB} = {09F65F74-7D2A-49D1-8614-F6989713AD39}
-		{6614532E-CEA8-480C-BB08-4CEEA7DA468B} = {C77BB288-D39D-4E56-89B1-8D33EFBF1872}
 		{C6B468A1-D281-4379-BC90-CBA8E23CF6B8} = {926BAF7B-A011-4230-AF1F-2265CE54C168}
 		{BF696B4A-F2DC-44EA-8A1C-F4B566E1A436} = {926BAF7B-A011-4230-AF1F-2265CE54C168}
 		{FC143ABB-5E8D-49A0-9457-EAF5223203A1} = {76D04C2C-6096-4AD5-8CF1-516E289A10CB}
 		{42FBB335-42BA-4C36-ADF5-5BADD8D3C919} = {76D04C2C-6096-4AD5-8CF1-516E289A10CB}
 		{53FC64C3-59D7-4EFE-A31B-EE2C8E202B43} = {5640D2B9-7B46-4B84-8BBF-836B4FC2D425}
 		{DC328EB0-3965-4117-A0B8-E08726D640BE} = {5640D2B9-7B46-4B84-8BBF-836B4FC2D425}
+		{DCD33BE2-932D-4B93-B36E-327A9B2443DE} = {881286FB-5E30-48A6-9F4E-9381CF00D2A9}
+		{FC4F7372-0652-49FE-9E3D-4E599235CC6B} = {779D85C4-72B6-4459-B6E8-0A5F4CC3E176}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72ED30C6-37A9-4221-B4F6-BCFB16C72CD8}
