@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\MSS.Application.Infrastructure.Persistence\MSS.Application.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="QueryCommandResult\UserAccount\" />
+    <Folder Include="UserAccount\Commands\CreateUserAccount\Repository\" />
+  </ItemGroup>
+
+</Project>
