@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAccount;
 using MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountDetails;
 using MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountsList;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MSS.Service.MainAPI.Controllers
@@ -13,13 +15,16 @@ namespace MSS.Service.MainAPI.Controllers
     {
         private readonly IGetUserAccountsListQuery _listQuery;
         private readonly IGetUserAccountDetailQuery _detailQuery;
+        private readonly ICreateUserAccountCommand _createCommand;
 
         public UserAccountsController(
             IGetUserAccountsListQuery listQuery,
-            IGetUserAccountDetailQuery detailQuery)
+            IGetUserAccountDetailQuery detailQuery,
+            ICreateUserAccountCommand createCommand)
         {
             _listQuery = listQuery;
             _detailQuery = detailQuery;
+            _createCommand = createCommand;
         }
 
         [Authorize]
@@ -37,6 +42,19 @@ namespace MSS.Service.MainAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult>
+        public async Task<IActionResult> Create([FromBody]CreateUserAccountModel account)
+        {
+            var cancellationTokenSource = new CancellationTokenSource();
+
+            var result = await _createCommand.Execute(account, cancellationTokenSource.Token);
+
+            return Ok();
+        }
+
+        //[HttpPut]
+        //public IActionResult CancelCreate()
+        //{
+
+        //}
     }
 }

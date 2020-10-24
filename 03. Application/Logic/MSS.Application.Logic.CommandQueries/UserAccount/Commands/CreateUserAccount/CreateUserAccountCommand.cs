@@ -102,7 +102,7 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
             // Report success back to the caller with a CommandResult
             return _resultFactory.Create(true, new string[]
             {
-                $"Saving your account succeded! Thank you for joining us {model.FirstName} {model.Affix?.ToString().Append(' ')}{model.LastName}",
+                $"Saving your account succeded! Thank you for joining us {model.FirstName} {model.Affix?.ToString().Append(' ')}{model.LastName}.",
                 $"Please check your email {model.Email} and click the link to verify it is you."
             });
         }

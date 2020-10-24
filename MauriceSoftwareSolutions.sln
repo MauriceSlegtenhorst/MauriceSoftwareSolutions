@@ -75,6 +75,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.Application.Logic.Comma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.Service.MainAPI", "02. Service\MSS.Service.MainAPI\MSS.Service.MainAPI.csproj", "{83DE2CCC-CAD4-4E9E-841B-AEE57A1D0669}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSS.Application.Logic.CommandQueries.Tests", "03. Application\Logic\MSS.Application.Logic.CommandQueries.Tests\MSS.Application.Logic.CommandQueries.Tests.csproj", "{2668AB64-9F32-4F27-A1E0-0FFB037E5CB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{83DE2CCC-CAD4-4E9E-841B-AEE57A1D0669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83DE2CCC-CAD4-4E9E-841B-AEE57A1D0669}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83DE2CCC-CAD4-4E9E-841B-AEE57A1D0669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2668AB64-9F32-4F27-A1E0-0FFB037E5CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2668AB64-9F32-4F27-A1E0-0FFB037E5CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2668AB64-9F32-4F27-A1E0-0FFB037E5CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2668AB64-9F32-4F27-A1E0-0FFB037E5CB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +143,7 @@ Global
 		{DAACA7B7-5C37-4AF7-A6A2-F90BE7F15564} = {C77BB288-D39D-4E56-89B1-8D33EFBF1872}
 		{221EE17D-6539-4A1E-A100-E33E07958214} = {BBFBC4E4-3475-4A83-B412-45FE7B10ECFB}
 		{83DE2CCC-CAD4-4E9E-841B-AEE57A1D0669} = {FC40B0AE-583A-4F34-BA9D-76443B5102A0}
+		{2668AB64-9F32-4F27-A1E0-0FFB037E5CB6} = {BBFBC4E4-3475-4A83-B412-45FE7B10ECFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72ED30C6-37A9-4221-B4F6-BCFB16C72CD8}

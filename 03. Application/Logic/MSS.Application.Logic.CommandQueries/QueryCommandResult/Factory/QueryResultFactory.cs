@@ -4,15 +4,14 @@ namespace MSS.Application.Logic.CommandQueries.QueryCommandResult.Factory
 {
     public sealed class QueryResultFactory : IQueryResultFactory
     {
-        public QueryResult Create(bool isSucceded, Type resultItemType, object resultItem, string[] messages = null, Exception exception = null)
+        public QueryResult<TResult> Create<TResult>(bool isSucceded, TResult resultItem, string[] messages = null, Exception exception = null)
         {
-            return new QueryResult
+            return new QueryResult<TResult>
             {
                 IsSucceded = isSucceded,
                 Messages = messages,
                 Exception = exception,
-                ResultItemType = resultItemType,
-                ResultItem = resultItem
+                Result = resultItem
             };
         }
     }
