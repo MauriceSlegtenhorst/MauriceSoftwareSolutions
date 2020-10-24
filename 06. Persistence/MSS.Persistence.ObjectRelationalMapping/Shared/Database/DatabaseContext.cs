@@ -13,6 +13,7 @@ using ObjectRelationalMapping.Seed;
 using System;
 using System.Text;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace ObjectRelationalMapping.Shared.Database
 {
@@ -38,15 +39,16 @@ namespace ObjectRelationalMapping.Shared.Database
         /// <remarks>Please notify the presentation layer in case of an exception. DO NOT show details about the database!</remarks>
         /// <exception cref="DbUpdateException">Thrown when an error is encountered while saving to the database.</exception>
         /// <exception cref="DbUpdateConcurrencyException">thrown when a concurrency violation is encountered while saving to the database. 
-        /// A concurrency violation occurs when an unexpected number of rows are affected during save. 
+        /// A concurrency violation occurs when an unexpected number of rows are affected during save.
         /// This is usually because the data in the database has been modified since it was loaded into memory.</exception>
-        public Task<int> SaveAsync(ref CancellationToken cancellationToken)
+        /// <returns>If succeded returns the number of affected entries. Else rethrows the occured exception</returns>
+        public async Task<int> SaveAsync(CancellationToken cancellationToken)
         {
-            Task<int> taskHolder;
+            int affectedEntriesCount;
 
             try
             {
-                taskHolder = SaveChangesAsync(cancellationToken);
+                affectedEntriesCount = await SaveChangesAsync(cancellationToken);
             }
             catch (DbUpdateConcurrencyException ex)
             {
@@ -61,7 +63,7 @@ namespace ObjectRelationalMapping.Shared.Database
                 throw;
             }
 
-            return taskHolder;
+            return affectedEntriesCount;
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

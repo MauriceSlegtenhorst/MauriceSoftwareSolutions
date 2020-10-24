@@ -21,6 +21,7 @@ namespace ObjectRelationalMapping.Shared
         /// <exception cref="DbUpdateConcurrencyException">Thrown when a concurrency violation is encountered while saving to the database. 
         /// A concurrency violation occurs when an unexpected number of rows are affected during save. 
         /// This is usually because the data in the database has been modified since it was loaded into memory.</exception>
-        Task<int> SaveAsync(ref CancellationToken cancellationToken);
+        /// <returns>If succeded return a Task containing the number of affected entities. Else return a Task containing the occured exception</returns>
+        Task<int> SaveAsync(CancellationToken cancellationToken);
     }
 }

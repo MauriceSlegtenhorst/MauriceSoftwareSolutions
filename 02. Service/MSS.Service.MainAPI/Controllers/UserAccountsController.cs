@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountDetails;
 using MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountsList;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MSS.Service.MainAPI.Controllers
 {
@@ -20,14 +22,21 @@ namespace MSS.Service.MainAPI.Controllers
             _detailQuery = detailQuery;
         }
 
-        public IEnumerable<UserAccountsListItemModel> Get()
+        [Authorize]
+        [HttpGet]
+        public IEnumerable<UserAccountsListItemModel> GetList()
         {
             return _listQuery.Execute();
         }
 
-        public UserAccountDetailModel Get(string email)
+        [Authorize]
+        [HttpPut]
+        public UserAccountDetailModel Get([FromBody]string email)
         {
             return _detailQuery.Execute(email);
         }
+
+        [HttpPut]
+        public async Task<IActionResult>
     }
 }
