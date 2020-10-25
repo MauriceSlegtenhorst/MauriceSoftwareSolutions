@@ -19,6 +19,7 @@ namespace MSS.Application.Logic.CommandQueries.Tests.QueryCommandResult.Factory
 
             // Assert
             Assert.NotNull(actualQueryResult);
+
         }
     }
 }
