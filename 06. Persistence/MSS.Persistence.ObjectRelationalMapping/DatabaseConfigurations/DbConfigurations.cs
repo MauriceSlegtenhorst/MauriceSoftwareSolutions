@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace ObjectRelationalMapping.DatabaseConfigurations
 {
-    internal sealed class DbConfigurations
+    public sealed class DbConfigurations
     {
         internal readonly string _sqlConnectionString;
         internal readonly string _issuerSigningKey;
@@ -36,7 +36,7 @@ namespace ObjectRelationalMapping.DatabaseConfigurations
         }
 
         /// <exception cref="NullReferenceException">Thrown when one of the enviroment variables was not found. This results in an empty or null string variable which is not allowed.</exception>
-        internal static DbConfigurations Build()
+        public static DbConfigurations Build()
         {
             return new DbConfigurations();
         }

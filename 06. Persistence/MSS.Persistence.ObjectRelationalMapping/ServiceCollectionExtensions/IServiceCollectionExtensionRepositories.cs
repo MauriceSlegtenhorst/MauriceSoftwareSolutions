@@ -9,7 +9,7 @@ namespace MSS.Persistence.ObjectRelationalMapping.ServiceCollectionExtensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped<IUserAccountRepository, UserAccountRepository>();
+            // Obsolete --> services.AddScoped<IUserAccountRepository, UserAccountRepository>();
             services.AddScoped<ICreditCategoryRepository, CreditCategoryRepository>();
 
             return services;

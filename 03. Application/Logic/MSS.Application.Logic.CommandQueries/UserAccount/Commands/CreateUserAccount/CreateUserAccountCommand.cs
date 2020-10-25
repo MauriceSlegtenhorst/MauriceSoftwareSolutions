@@ -19,7 +19,6 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
         private const string ErrorsKeepComingMessage = "If you keep receiving error please fill in our customer support form. Thank you in advance!";
         private const string ErrorTryAgainMessage = "Please check if you got any mail from us. If you did not receive mail from us, please try and fill in the form again.";
 
-        private readonly IUserAccountRepository _repository;
         private readonly IUserAccountFactory _accountFactory;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICommandResultFactory _resultFactory;
@@ -27,14 +26,12 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
         private readonly ILogger<CreateUserAccountCommand> _logger;
 
         public CreateUserAccountCommand(
-            IUserAccountRepository repository,
             IUserAccountFactory accountFactory,
             IUnitOfWork unitOfWork,
             ICommandResultFactory resultFactory,
             ILogger<CreateUserAccountCommand> logger,
             UserManager<DomainUserAccount> userManager)
         {
-            _repository = repository;
             _accountFactory = accountFactory;
             _unitOfWork = unitOfWork;
             _resultFactory = resultFactory;

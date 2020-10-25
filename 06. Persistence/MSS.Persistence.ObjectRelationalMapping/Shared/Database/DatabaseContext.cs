@@ -17,9 +17,12 @@ using System.Linq;
 
 namespace ObjectRelationalMapping.Shared.Database
 {
-    public sealed class DatabaseContext : IdentityDbContext<DomainUserAccount>, IDatabaseContext
+    public class DatabaseContext : IdentityDbContext<DomainUserAccount>, IDatabaseContext
     {
         private readonly ILogger<DatabaseContext> _logger;
+
+        // Only here for mocking
+        public DatabaseContext(DbContextOptions<DatabaseContext> dbContextOptions) : base(dbContextOptions) { }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> dbContextOptions, ILogger<DatabaseContext> logger) 
             : base(dbContextOptions) 
@@ -27,9 +30,9 @@ namespace ObjectRelationalMapping.Shared.Database
             _logger = logger;
         }
 
-        public DbSet<DomainUserAccount> UserAccounts { get; set; }
-        public DbSet<DomainCredit> Credits { get; set; }
-        public DbSet<DomainCreditCategory> CreditCategories { get; set; }
+        public virtual DbSet<DomainUserAccount> UserAccounts { get; set; }
+        public virtual DbSet<DomainCredit> Credits { get; set; }
+        public virtual DbSet<DomainCreditCategory> CreditCategories { get; set; }
 
         public new DbSet<T> Set<T>() where T : class, IEntity
         {
