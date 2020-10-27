@@ -14,7 +14,7 @@ namespace MSS.Service.MainAPI
         /// Scoped objects are the same within a request, but different across different requests.
         /// Singleton objects are the same for every object and every request.
 
-        public readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         public Startup(IConfiguration configuration)
         {
@@ -32,19 +32,17 @@ namespace MSS.Service.MainAPI
             services.AddFactories();
 
             services.AddControllers();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -16,22 +16,22 @@ namespace ObjectRelationalMapping.Shared
             _databaseContext = databaseContext;
         }
 
-        public void Add(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
             _databaseContext.Set<TEntity>().Add(entity);
         }
 
-        public Task<TEntity> GetAsync(string id, CancellationToken cancellationToken)
+        public virtual Task<TEntity> GetAsync(string id, CancellationToken cancellationToken)
         {
             return _databaseContext.Set<TEntity>().SingleAsync(entity => entity.Id == id, cancellationToken);
         }
 
-        public IQueryable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
             return _databaseContext.Set<TEntity>();
         }
 
-        public void Remove(TEntity entity)
+        public virtual void Remove(TEntity entity)
         {
             _databaseContext.Set<TEntity>().Remove(entity);
         }

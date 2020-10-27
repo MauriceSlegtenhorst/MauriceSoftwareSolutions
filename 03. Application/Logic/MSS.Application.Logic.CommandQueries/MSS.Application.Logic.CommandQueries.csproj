@@ -9,10 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Security\Commands\LogOut\" />
     <Folder Include="UserAccount\Commands\CreateUserAccount\Repository\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
   </ItemGroup>
 

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\03. Application\Logic\MSS.Application.Logic.CommandQueries\MSS.Application.Logic.CommandQueries.csproj" />
+    <ProjectReference Include="..\..\04. Domain\Concrete\MSS.Domain.Concrete.EntityAttributes\MSS.Domain.Concrete.EntityAttributes.csproj" />
     <ProjectReference Include="..\..\06. Persistence\MSS.Persistence.ObjectRelationalMapping\MSS.Persistence.ObjectRelationalMapping.csproj" />
   </ItemGroup>
 

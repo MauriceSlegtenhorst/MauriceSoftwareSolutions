@@ -10,10 +10,7 @@ using ObjectRelationalMapping.UserAccount;
 using System.Threading;
 using MSS.Domain.Common.Interfaces;
 using ObjectRelationalMapping.Seed;
-using System;
-using System.Text;
 using Microsoft.Extensions.Logging;
-using System.Linq;
 
 namespace ObjectRelationalMapping.Shared.Database
 {
@@ -44,7 +41,7 @@ namespace ObjectRelationalMapping.Shared.Database
         /// <exception cref="DbUpdateConcurrencyException">thrown when a concurrency violation is encountered while saving to the database. 
         /// A concurrency violation occurs when an unexpected number of rows are affected during save.
         /// This is usually because the data in the database has been modified since it was loaded into memory.</exception>
-        /// <returns>If succeded returns the number of affected entries. Else rethrows the occured exception</returns>
+        /// <returns>If succeded returns the number of affected entries. Else rethrows the occured exception and logs it</returns>
         public async Task<int> SaveAsync(CancellationToken cancellationToken)
         {
             int affectedEntriesCount;

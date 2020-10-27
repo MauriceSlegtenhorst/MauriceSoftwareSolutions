@@ -19,24 +19,25 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
         private const string ErrorsKeepComingMessage = "If you keep receiving error please fill in our customer support form. Thank you in advance!";
         private const string ErrorTryAgainMessage = "Please check if you got any mail from us. If you did not receive mail from us, please try and fill in the form again.";
 
+        private readonly IUserAccountRepository _repository;
         private readonly IUserAccountFactory _accountFactory;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICommandResultFactory _resultFactory;
-        private readonly UserManager<DomainUserAccount> _userManager;
         private readonly ILogger<CreateUserAccountCommand> _logger;
 
         public CreateUserAccountCommand(
+            IUserAccountRepository repository,
             IUserAccountFactory accountFactory,
             IUnitOfWork unitOfWork,
             ICommandResultFactory resultFactory,
             ILogger<CreateUserAccountCommand> logger,
             UserManager<DomainUserAccount> userManager)
         {
+            _repository = repository;
             _accountFactory = accountFactory;
             _unitOfWork = unitOfWork;
             _resultFactory = resultFactory;
             _logger = logger;
-            _userManager = userManager;
         }
 
         public async Task<CommandResult> Execute(CreateUserAccountModel model, CancellationToken cancellationToken)
@@ -48,20 +49,22 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
                 model.Affix,
                 model.UserName);
 
-            IdentityResult createResult = await _userManager.CreateAsync(userAccount, model.Password);
+            IdentityResult creationResult = await _repository.Add(userAccount, model.Password);
 
             // Handle creation errors
-            if (createResult.Succeeded == false)
+            if (creationResult.Succeeded == false)
             {
                 _logger.LogError($"Creating an user account failed for user: {model.FirstName} {model.Affix?.ToString().Append(' ')}{model.LastName} with the email address {model.Email}.");
 
-                for (int i = 1; i < createResult.Errors.Count(); i++)
+                for (int i = 1; i < creationResult.Errors.Count(); i++)
                 {
                     int errorIndex = i - 1;
-                    _logger.LogError($"Code: {createResult.Errors.ElementAt(errorIndex).Code} Description: {createResult.Errors.ElementAt(errorIndex).Description}.");
+                    _logger.LogError($"Code: {creationResult.Errors.ElementAt(errorIndex).Code} Description: {creationResult.Errors.ElementAt(errorIndex).Description}.");
                 }
 
-                return _resultFactory.Create(false, new string[]
+                return _resultFactory.Create(
+                    isSucceded: false, 
+                    messages: new string[]
                 {
                     "Unfortunately an error occurred during the process of creating your account.",
                     ErrorTryAgainMessage,
@@ -85,7 +88,7 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
                 return HandleSaveAsyncException(updateException: ex);
             }
 
-            // Handle zero changes were made somehow
+            // Handle zero changes were made somehow... dafuq
             if (affectedEntriesCount == 0)
             {
                 return _resultFactory.Create(false, new string[]
@@ -97,13 +100,16 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
             }
 
             // Report success back to the caller with a CommandResult
-            return _resultFactory.Create(true, new string[]
+            return _resultFactory.Create(
+                isSucceded: true, 
+                messages: new string[]
             {
                 $"Saving your account succeded! Thank you for joining us {model.FirstName} {model.Affix?.ToString().Append(' ')}{model.LastName}.",
-                $"Please check your email {model.Email} and click the link to verify it is you."
+                $"Please check your email {model.Email} and click the link to verify it is you and your email is real."
             });
         }
 
+        // Here to prevent duplicate code
         private CommandResult HandleSaveAsyncException(
             DbUpdateConcurrencyException concurrencyException = null,
             DbUpdateException updateException = null)
