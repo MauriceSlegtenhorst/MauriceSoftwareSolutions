@@ -1,4 +1,5 @@
-﻿using DomainUserAccount = MSS.Domain.Concrete.DatabaseEntities.UserAccount.UserAccount;
+﻿using System;
+using DomainUserAccount = MSS.Domain.Concrete.DatabaseEntities.UserAccount.UserAccount;
 
 namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAccount.Factory
 {
@@ -6,9 +7,11 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
     {
         DomainUserAccount Create(
             string email,
-            string firstName = null, 
-            string lastName = null, 
-            string affix = null,
-            string userName = null);
+            int sessionTimeMinutes,
+            string firstName,
+            string affix,
+            string lastName,
+            string userName,
+            string description);
     }
 }

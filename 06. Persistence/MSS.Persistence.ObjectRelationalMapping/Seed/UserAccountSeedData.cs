@@ -7,6 +7,17 @@ namespace MSS.Persistence.ObjectRelationalMapping.UserAccount
 {
     internal sealed class UserAccountSeedData
     {
+        private const int SESSION_TIME_MINUTES = 10;
+        private const string AVATAR_LINK = "https://respondsystems.com/wp-content/uploads/2015/12/RSI_generic_avatar-150x150.jpg";
+        private const string HTML_DESCRIPTION = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis " +
+            "mauris sit amet. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Faucibus a pellentesque sit amet porttitor eget dolor morbi. Libero justo laoreet sit amet cursus. Varius vel " +
+            "pharetra vel turpis nunc eget lorem dolor. Adipiscing elit ut aliquam purus. Enim sed faucibus turpis in eu mi bibendum. Fames ac turpis egestas maecenas pharetra. Sed turpis tincidunt id aliquet. " +
+            "Lorem ipsum dolor sit amet consectetur adipiscing. Quam quisque id diam vel quam elementum pulvinar.</p><p>Eu augue ut lectus arcu bibendum at varius vel pharetra. Sapien faucibus et molestie ac " +
+            "feugiat sed lectus. Id neque aliquam vestibulum morbi blandit cursus risus at ultrices. Nunc non blandit massa enim nec dui nunc. Vel pharetra vel turpis nunc eget lorem. Enim nulla aliquet porttitor " +
+            "lacus luctus accumsan tortor posuere. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Est ante in nibh mauris cursus mattis molestie. Tristique et egestas quis ipsum suspendisse " +
+            "ultrices gravida dictum fusce. In ornare quam viverra orci sagittis eu volutpat. Ultrices sagittis orci a scelerisque purus. Lacus laoreet non curabitur gravida arcu ac. Amet mattis vulputate enim nulla " +
+            "aliquet porttitor lacus. Fermentum posuere urna nec tincidunt praesent semper. Netus et malesuada fames ac turpis egestas maecenas pharetra. Tellus cras adipiscing enim eu turpis egestas.</p>";
+
         private UserAccountSeedData() { }
 
         /// <exception cref="ArgumentException">Thrown when parameter password is null or empty</exception>
@@ -34,7 +45,10 @@ namespace MSS.Persistence.ObjectRelationalMapping.UserAccount
                     UserName = "maurice.slegtenhorst@outlook.com",
                     PasswordHash = passwordHash,
                     NormalizedUserName = "maurice.slegtenhorst@outlook.com".ToUpper(),
-                    PhoneNumber = "0645377536"
+                    PhoneNumber = "0645377536",
+                    SessionTimeMinutes = SESSION_TIME_MINUTES,
+                    HTMLDescription = HTML_DESCRIPTION,
+                    AvatarLink = AVATAR_LINK
                 },
                 new DomainUserAccount
                 {
@@ -51,7 +65,10 @@ namespace MSS.Persistence.ObjectRelationalMapping.UserAccount
                     UserName = "mauricesoftwaresolution@outlook.com",
                     PasswordHash = passwordHash,
                     NormalizedUserName = "mauricesoftwaresolution@outlook.com".ToUpper(),
-                    PhoneNumber = "0645377536"
+                    PhoneNumber = "0645377536",
+                    SessionTimeMinutes = SESSION_TIME_MINUTES,
+                    HTMLDescription = HTML_DESCRIPTION,
+                    AvatarLink = AVATAR_LINK
                 },
                 new DomainUserAccount
                 {
@@ -68,7 +85,10 @@ namespace MSS.Persistence.ObjectRelationalMapping.UserAccount
                     UserName = "hanneke.slegtenhorst1@gmail.com",
                     PasswordHash = passwordHash,
                     NormalizedUserName = "hanneke.slegtenhorst1@gmail.com".ToUpper(),
-                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10")
+                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10"),
+                    SessionTimeMinutes = SESSION_TIME_MINUTES,
+                    HTMLDescription = HTML_DESCRIPTION,
+                    AvatarLink = AVATAR_LINK
                 },
                 new DomainUserAccount
                 {
@@ -85,7 +105,10 @@ namespace MSS.Persistence.ObjectRelationalMapping.UserAccount
                     UserName = "privilegedemployee01@mss.nl",
                     PasswordHash = passwordHash,
                     NormalizedUserName = "privilegedEmployee01@mss.nl".ToUpper(),
-                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10")
+                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10"),
+                    SessionTimeMinutes = SESSION_TIME_MINUTES,
+                    HTMLDescription = HTML_DESCRIPTION,
+                    AvatarLink = AVATAR_LINK
                 },
                 new DomainUserAccount
                 {
@@ -102,7 +125,10 @@ namespace MSS.Persistence.ObjectRelationalMapping.UserAccount
                     UserName = "employee01@mss.nl",
                     PasswordHash = passwordHash,
                     NormalizedUserName = "Employee01@mss.nl".ToUpper(),
-                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10")
+                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10"),
+                    SessionTimeMinutes = SESSION_TIME_MINUTES,
+                    HTMLDescription = HTML_DESCRIPTION,
+                    AvatarLink = AVATAR_LINK
                 },
                 new DomainUserAccount
                 {
@@ -119,7 +145,10 @@ namespace MSS.Persistence.ObjectRelationalMapping.UserAccount
                     UserName = "standarduser01@mss.nl",
                     PasswordHash = passwordHash,
                     NormalizedUserName = "standarduser01@mss.nl".ToUpper(),
-                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10")
+                    PhoneNumber = "06" + new Random().Next(0, 999999).ToString("D10"),
+                    SessionTimeMinutes = SESSION_TIME_MINUTES,
+                    HTMLDescription = HTML_DESCRIPTION,
+                    AvatarLink = AVATAR_LINK
                 }
             };
         }

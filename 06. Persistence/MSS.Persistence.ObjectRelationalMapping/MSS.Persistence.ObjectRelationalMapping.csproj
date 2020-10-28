@@ -31,8 +31,4 @@
     <ProjectReference Include="..\..\04. Domain\Concrete\MSS.Domain.Concrete.DatabaseEntities\MSS.Domain.Concrete.DatabaseEntities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

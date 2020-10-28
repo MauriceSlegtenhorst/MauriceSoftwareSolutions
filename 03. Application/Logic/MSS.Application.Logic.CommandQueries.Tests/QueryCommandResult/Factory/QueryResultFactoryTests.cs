@@ -7,15 +7,15 @@ namespace MSS.Application.Logic.CommandQueries.Tests.QueryCommandResult.Factory
     public class QueryResultFactoryTests
     {
         [Theory]
-        [InlineData(true, "blablabla", new string[] { "jajaja", "jajajaja" }, null)]
-        [InlineData(false, null, null, null)]
-        public void Create_QueryResultShouldNotBeNull(bool isSucceded, string resultItem, string[] messages = null, Exception exception = null)
+        [InlineData(true, "blablabla", new string[] { "jajaja", "jajajaja" })]
+        [InlineData(false, null, null)]
+        public void Create_QueryResultShouldNotBeNull(bool isSucceded, string resultItem, string[] messages = null)
         {
             // Arrange
             var queryResultFactory = new QueryResultFactory();
 
             // Act
-            var actualQueryResult = queryResultFactory.Create<String>(isSucceded, resultItem, messages, exception);
+            var actualQueryResult = queryResultFactory.Create<String>(isSucceded, resultItem, messages);
 
             // Assert
             Assert.NotNull(actualQueryResult);

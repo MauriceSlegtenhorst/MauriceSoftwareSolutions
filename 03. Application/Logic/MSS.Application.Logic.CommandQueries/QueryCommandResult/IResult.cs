@@ -7,7 +7,5 @@ namespace MSS.Application.Logic.CommandQueries.QueryCommandResult
         bool IsSucceded { get; set; }
 
         string[] Messages { get; set; }
-
-        Exception Exception { get; set; }
     }
 }

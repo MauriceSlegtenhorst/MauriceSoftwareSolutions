@@ -91,37 +91,38 @@ namespace MSS.Persistence.ObjectRelationalMapping.Tests.Shared.Database
         public async Task SaveAsync_ShouldSaveAsync(long amountOfEntriesToBeAdded)
         {
             // Arrange
-            using (var _dbContext = new DatabaseContext(_options))
+            using var _dbContext = new DatabaseContext(_options);
+            var accountData = new List<DomainUserAccount>();
+            for (long i = 0; i < amountOfEntriesToBeAdded; i++)
             {
-                var accountData = new List<DomainUserAccount>();
-                for (long i = 0; i < amountOfEntriesToBeAdded; i++)
+                accountData.Add(new DomainUserAccount
                 {
-                    accountData.Add(new DomainUserAccount
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        Email = $"Bertus{i}@outlook.com",
-                        FirstName = $"FirstName{i}",
-                        Affix = $"Affix{i}",
-                        LastName = $"LastName{i}",
-                        CreationDateUTC = DateTime.UtcNow,
-                        UserName = $"UserName{i}",
-                        PasswordHash = $"PasswordHash{i}",
-                        EmailConfirmed = ((_random.Next(0, 1) == 0) ? true : false),
-                        IsAdmitted = ((_random.Next(0, 1) == 0) ? true : false),
-                        TwoFactorEnabled = ((_random.Next(0, 1) == 0) ? true : false)
-                    });
-                }
-
-                long expectedAffectedEntries = accountData.LongCount();
-
-                _dbContext.Set<DomainUserAccount>().AddRange(accountData);
-
-                // Act
-                long actualAffectedEntries = await _dbContext.SaveAsync(CancellationToken.None);
-
-                // Assert
-                Assert.Equal(expectedAffectedEntries, actualAffectedEntries);
+                    Id = Guid.NewGuid().ToString(),
+                    Email = $"Bertus{i}@outlook.com",
+                    FirstName = $"FirstName{i}",
+                    Affix = $"Affix{i}",
+                    LastName = $"LastName{i}",
+                    CreationDateUTC = DateTime.UtcNow,
+                    UserName = $"UserName{i}",
+                    PasswordHash = $"PasswordHash{i}",
+                    EmailConfirmed = ((_random.Next(0, 1) == 0)),
+                    IsAdmitted = ((_random.Next(0, 1) == 0)),
+                    TwoFactorEnabled = ((_random.Next(0, 1) == 0)),
+                    HTMLDescription = "Description hereeeee",
+                    AvatarLink = "blablabla.png",
+                    SessionTimeMinutes = 1
+                });
             }
+
+            long expectedAffectedEntries = accountData.LongCount();
+
+            _dbContext.Set<DomainUserAccount>().AddRange(accountData);
+
+            // Act
+            long actualAffectedEntries = await _dbContext.SaveAsync(CancellationToken.None);
+
+            // Assert
+            Assert.Equal(expectedAffectedEntries, actualAffectedEntries);
         }
 
         [Fact]
@@ -130,6 +131,7 @@ namespace MSS.Persistence.ObjectRelationalMapping.Tests.Shared.Database
 
         }
 
+        [Fact]
         public async Task SaveAsync_ShouldLogAndRethrowExceptions()
         {
 

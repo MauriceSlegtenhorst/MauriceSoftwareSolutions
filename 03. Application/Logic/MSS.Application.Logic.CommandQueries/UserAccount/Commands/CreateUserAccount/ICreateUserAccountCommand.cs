@@ -1,4 +1,5 @@
 ﻿using MSS.Application.Logic.CommandQueries.QueryCommandResult;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,6 +7,6 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
 {
     public interface ICreateUserAccountCommand
     {
-        Task<CommandResult> Execute(CreateUserAccountModel model, CancellationToken cancellationToken);
+        Task<Tuple<int,CommandResult>> Execute(CreateUserAccountModel model, CancellationToken cancellationToken);
     }
 }

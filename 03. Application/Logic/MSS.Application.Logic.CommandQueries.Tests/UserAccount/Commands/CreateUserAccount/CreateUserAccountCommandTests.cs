@@ -18,16 +18,16 @@ namespace MSS.Application.Logic.CommandQueries.Tests.UserAccount.Commands.Create
 {
     public class CreateUserAccountCommandTests
     {
-        private const string ErrorsKeepComingMessage = "If you keep receiving error please fill in our customer support form. Thank you in advance!";
-        private const string ErrorTryAgainMessage = "Please check if you got any mail from us. If you did not receive mail from us, please try and fill in the form again.";
+        //private const string ErrorsKeepComingMessage = "If you keep receiving error please fill in our customer support form. Thank you in advance!";
+        //private const string ErrorTryAgainMessage = "Please check if you got any mail from us. If you did not receive mail from us, please try and fill in the form again.";
 
         private readonly UserAccountFactory _accountFactory;
-        private readonly CommandResultFactory _resultFactory;
+        //private readonly CommandResultFactory _resultFactory;
 
         public CreateUserAccountCommandTests()
         {
             _accountFactory = new UserAccountFactory();
-            _resultFactory = new CommandResultFactory();
+            //_resultFactory = new CommandResultFactory();
         }
 
         [Fact]
@@ -56,6 +56,7 @@ namespace MSS.Application.Logic.CommandQueries.Tests.UserAccount.Commands.Create
 
             var userAccount = _accountFactory.Create(
                model.Email,
+               model.SessionTimeMinutes,
                model.FirstName,
                model.LastName,
                model.Affix,

@@ -19,8 +19,8 @@ namespace MSS.Persistence.ObjectRelationalMapping.DatabaseConfigurations.Identit
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(issuerSigningKey)),
                 ClockSkew = TimeSpan.Zero,
-                ValidAudience = Endpoints.API_BASE_ADDRESS,
-                ValidIssuer = Endpoints.API_BASE_ADDRESS
+                ValidAudience = Environment.GetEnvironmentVariable("MSSValidAudience") ?? throw new NullReferenceException("ValidAudience evironment variable not found."),
+                ValidIssuer = Environment.GetEnvironmentVariable("MSSValidIssuer") ?? throw new NullReferenceException("ValidIssuer evironment variable not found.")
             };
         }
     }

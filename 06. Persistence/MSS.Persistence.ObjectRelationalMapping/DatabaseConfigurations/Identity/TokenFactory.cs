@@ -48,7 +48,6 @@ namespace MSS.Persistence.ObjectRelationalMapping.DatabaseConfigurations.Identit
                 userId: userAccount.Id,
                 loginProvider: ORMConstants.LOGIN_PROVIDER,
                 userName: userAccount.FirstName ?? userAccount.Email,
-                expirationDate: expirationDate,
                 jwtSecurityToken: new JwtSecurityTokenHandler().WriteToken(token));
         }
     }

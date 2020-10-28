@@ -9,6 +9,7 @@ using MSS.CrossCuttingConcerns.Infrastructure.ConstantData;
 using MSS.Domain.Concrete.EntityAttributes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -37,22 +38,25 @@ namespace MSS.Service.MainAPI.Controllers
 
         [EnumAuthorize(Roles.Administrator | Roles.PrivilegedEmployee | Roles.Employee)]
         [HttpGet("GetList")]
-        public IEnumerable<UserAccountsListItemModel> GetList()
+        public async Task<IActionResult> GetList()
         {
-            return _listQuery.Execute();
+            var queryResultTuple = await _listQuery.Execute();
+            return StatusCode(queryResultTuple.Item1, queryResultTuple.Item2);
         }
 
         [Authorize]
         [HttpPut]
-        public QueryResult<UserAccountDetailModel> Get()
+        public async Task<IActionResult> Get()
         {
-            return _detailQuery.Execute(_contextAccessor.HttpContext.User);
+            var queryResultTuple = await _detailQuery.Execute(_contextAccessor.HttpContext.User);
+            return StatusCode(queryResultTuple.Item1, queryResultTuple.Item2);
         }
 
         [HttpPut]
-        public async Task<CommandResult> Create([FromBody] CreateUserAccountModel account)
+        public async Task<IActionResult> Create([FromBody] CreateUserAccountModel account)
         {
-            return await _createCommand.Execute(account, CancellationToken.None);
+            var commandResultTuple = await _createCommand.Execute(account, CancellationToken.None);
+            return StatusCode(commandResultTuple.Item1, commandResultTuple.Item2);
         }
     }
 }

@@ -23,6 +23,9 @@ namespace ObjectRelationalMapping.UserAccount
 
             builder.Property(userAccount => userAccount.PasswordHash)
                 .IsRequired();
+
+            builder.Property(userAccount => userAccount.SessionTimeMinutes)
+                .IsRequired();
         }
     }
 }

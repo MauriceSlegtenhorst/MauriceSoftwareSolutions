@@ -18,17 +18,16 @@ namespace ObjectRelationalMapping.DatabaseConfigurations
         private DbConfigurations()
         {
             string connectionString = Environment.GetEnvironmentVariable("MSSConnectionString");
-            _sqlConnectionString = connectionString;
 
             if (String.IsNullOrEmpty(connectionString))
                 throw new NullReferenceException("connstring = null or empty");
 
-            string issuerSigningKey = Environment.GetEnvironmentVariable("MSSValidateIssuerSigningKey");
-            
-            if (String.IsNullOrEmpty(connectionString))
-                throw new NullReferenceException("key = null or empty");
+            _sqlConnectionString = connectionString;
 
-            _issuerSigningKey = issuerSigningKey;
+            _issuerSigningKey = Environment.GetEnvironmentVariable("MSSValidateIssuerSigningKey");
+            
+            if (String.IsNullOrEmpty(_issuerSigningKey))
+                throw new NullReferenceException("key = null or empty");
 
             _tokenValidationParameters = TokenValidationParametersFactory.Build(_issuerSigningKey);
 

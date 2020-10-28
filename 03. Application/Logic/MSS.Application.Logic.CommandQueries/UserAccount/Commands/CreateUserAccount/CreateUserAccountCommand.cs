@@ -1,6 +1,4 @@
-﻿using DomainUserAccount = MSS.Domain.Concrete.DatabaseEntities.UserAccount.UserAccount;
-
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using MSS.Application.Infrastructure.Persistence;
 using MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAccount.Factory;
 using System.Threading;
@@ -16,7 +14,7 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
 {
     public sealed class CreateUserAccountCommand : ICreateUserAccountCommand
     {
-        private const string ErrorsKeepComingMessage = "If you keep receiving error please fill in our customer support form. Thank you in advance!";
+        private const string ErrorsKeepComingMessage = "If you keep receiving this error please fill in our customer support form. Thank you in advance!";
         private const string ErrorTryAgainMessage = "Please check if you got any mail from us. If you did not receive mail from us, please try and fill in the form again.";
 
         private readonly IUserAccountRepository _repository;
@@ -30,8 +28,7 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
             IUserAccountFactory accountFactory,
             IUnitOfWork unitOfWork,
             ICommandResultFactory resultFactory,
-            ILogger<CreateUserAccountCommand> logger,
-            UserManager<DomainUserAccount> userManager)
+            ILogger<CreateUserAccountCommand> logger)
         {
             _repository = repository;
             _accountFactory = accountFactory;
@@ -40,14 +37,16 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
             _logger = logger;
         }
 
-        public async Task<CommandResult> Execute(CreateUserAccountModel model, CancellationToken cancellationToken)
+        public async Task<Tuple<int,CommandResult>> Execute(CreateUserAccountModel model, CancellationToken cancellationToken)
         {
             var userAccount = _accountFactory.Create(
-                model.Email,
-                model.FirstName,
-                model.LastName,
-                model.Affix,
-                model.UserName);
+                email:              model.Email,
+                sessionTimeMinutes: model.SessionTimeMinutes,
+                firstName:          model.FirstName,
+                affix:              model.Affix,
+                lastName:           model.LastName,
+                userName:           model.UserName,
+                description:        model.Description);
 
             IdentityResult creationResult = await _repository.Add(userAccount, model.Password);
 
@@ -62,17 +61,17 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
                     _logger.LogError($"Code: {creationResult.Errors.ElementAt(errorIndex).Code} Description: {creationResult.Errors.ElementAt(errorIndex).Description}.");
                 }
 
-                return _resultFactory.Create(
+                return new Tuple<int, CommandResult>(500, _resultFactory.Create(
                     isSucceded: false, 
                     messages: new string[]
                 {
                     "Unfortunately an error occurred during the process of creating your account.",
                     ErrorTryAgainMessage,
                     ErrorsKeepComingMessage
-                });
+                }));
             }
 
-            int affectedEntriesCount = 0;
+            int affectedEntriesCount;
 
             // Try to save changes to the database
             try
@@ -91,26 +90,28 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
             // Handle zero changes were made somehow... dafuq
             if (affectedEntriesCount == 0)
             {
-                return _resultFactory.Create(false, new string[]
-                {
-                    "Unfortunately somthing really weird went wrong. Zero entries were affected meaning nothing happened.",
-                    ErrorTryAgainMessage,
-                    ErrorsKeepComingMessage
-                });
+                return new Tuple<int, CommandResult>(500, _resultFactory.Create(
+                    isSucceded: false,
+                    messages: new string[]
+                    {
+                        "Unfortunately somthing really weird went wrong. Zero entries were affected meaning nothing happened.",
+                        ErrorTryAgainMessage,
+                        ErrorsKeepComingMessage
+                    }));
             }
 
             // Report success back to the caller with a CommandResult
-            return _resultFactory.Create(
+            return new Tuple<int, CommandResult>(201, _resultFactory.Create(
                 isSucceded: true, 
                 messages: new string[]
-            {
-                $"Saving your account succeded! Thank you for joining us {model.FirstName} {model.Affix?.ToString().Append(' ')}{model.LastName}.",
-                $"Please check your email {model.Email} and click the link to verify it is you and your email is real."
-            });
+                {
+                    $"Saving your account succeded! Thank you for joining us {model.FirstName} {model.Affix?.ToString().Append(' ')}{model.LastName}.",
+                    $"Please check your email {model.Email} and click the link to verify it is you and your email is real."
+                }));
         }
 
         // Here to prevent duplicate code
-        private CommandResult HandleSaveAsyncException(
+        private Tuple<int, CommandResult> HandleSaveAsyncException(
             DbUpdateConcurrencyException concurrencyException = null,
             DbUpdateException updateException = null)
         {
@@ -119,13 +120,14 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAc
             if (ex == null)
                 throw new ArgumentException("One of the two types of exceptions must be provided as an initialized object.");
 
-            return _resultFactory.Create(false, new string[]
-            {
-                "Unfortunately an error occurred during the process of saving your account.",
-                ErrorTryAgainMessage,
-                ErrorsKeepComingMessage
-            },
-            ex);
+            return new Tuple<int, CommandResult>(500, _resultFactory.Create(
+                isSucceded: false, 
+                messages: new string[]
+                {
+                    "Unfortunately an error occurred during the process of saving your account.",
+                    ErrorTryAgainMessage,
+                    ErrorsKeepComingMessage
+                }));
         }
     }
 }
