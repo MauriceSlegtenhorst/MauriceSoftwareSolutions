@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MSS.Application.Logic.CommandQueries.Security.Queries.LogIn;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MSS.Service.MainAPI.Controllers
@@ -18,12 +17,18 @@ namespace MSS.Service.MainAPI.Controllers
             _logInQuery = logInQuery;
         }
 
-        [Route("login")]
-        [HttpPut]
+        [HttpPut(nameof(LogIn))]
         public async Task<IActionResult> LogIn([FromBody]LogInModel logInModel)
         {
             var queryTupleResult = await _logInQuery.Execute(logInModel);
             return StatusCode(queryTupleResult.Item1, queryTupleResult.Item2);
+        }
+
+        [Authorize]
+        [HttpGet(nameof(LogOut))]
+        public async Task<IActionResult> LogOut()
+        {
+            throw new NotImplementedException();
         }
     }
 }

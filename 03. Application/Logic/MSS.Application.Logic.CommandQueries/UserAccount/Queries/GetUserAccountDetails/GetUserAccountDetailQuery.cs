@@ -11,10 +11,11 @@ using Microsoft.Extensions.Logging;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Data.SqlTypes;
 
 namespace MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountDetails
 {
-    public sealed class GetUserAccountDetailQuery : IGetUserAccountDetailQuery
+    public class GetUserAccountDetailQuery : IGetUserAccountDetailQuery
     {
         private const string SORRY = "Sorry for the inconvenience.";
 
@@ -65,7 +66,7 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccoun
                 stringBuilder.Insert(0, "WARNING: email could not be extracted from the ClaimsPrincipal object.\n");
                 _logger.LogWarning(stringBuilder.ToString());
 
-                return new Tuple<int, QueryResult<UserAccountDetailModel>>(500, _resultFactory.Create<UserAccountDetailModel>(
+                return new Tuple<int, QueryResult<UserAccountDetailModel>>(400, _resultFactory.Create<UserAccountDetailModel>(
                 isSucceded: false,
                 resultItem: null,
                 messages: new string[]

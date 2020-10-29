@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ObjectRelationalMapping.DatabaseConfigurations;
+using System;
 
 namespace MSS.Persistence.ObjectRelationalMapping.ServiceCollectionExtensions
 {
@@ -18,9 +19,11 @@ namespace MSS.Persistence.ObjectRelationalMapping.ServiceCollectionExtensions
                 })
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
+#if DEBUG
                     options.RequireHttpsMetadata = false;
+#endif
                     options.SaveToken = true;
-                    options.Audience = ORMConstants.OPEN_ID_CONNECT_AUDIENCE;
+                    options.Audience = Environment.GetEnvironmentVariable("MSSValidAudience") ?? throw new NullReferenceException("ValidAudience evironment variable not found.");
                     options.TokenValidationParameters = dbConfigurations._tokenValidationParameters;
                 });
 

@@ -1,5 +1,4 @@
 ﻿using MSS.Application.Logic.CommandQueries.QueryCommandResult.Factory;
-using System;
 using Xunit;
 
 namespace MSS.Application.Logic.CommandQueries.Tests.QueryCommandResult.Factory

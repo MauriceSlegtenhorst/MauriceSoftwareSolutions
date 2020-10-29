@@ -42,13 +42,15 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.LogIn
                         ErrorsKeepComingMessage
                     }));
 
+            var user = await _signInManager.UserManager.FindByNameAsync(logInModel.Username);
+
             SignInResult signInResult;
 
             try
             {
                 signInResult = await _signInManager.PasswordSignInAsync(logInModel.Username, logInModel.Password, logInModel.IsPersistent, true);
             }
-            catch (Exception)
+            catch
             {
                 return new Tuple<int, QueryResult<SessionAuthenticationToken>>(500, _resultFactory.Create<SessionAuthenticationToken>(
                     isSucceded: false,
@@ -64,7 +66,10 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.LogIn
                 };
 
                 if (signInResult.IsLockedOut)
-                    errorMessages.Add("- You are locked out.");
+                {
+                    var endDate = await _signInManager.UserManager.GetLockoutEndDateAsync(user);
+                    errorMessages.Add($"- You are locked out until {endDate.Value.ToLocalTime().DateTime}.");
+                }
 
                 if (signInResult.IsNotAllowed)
                     errorMessages.Add("- You are not allowed to log in.");
@@ -80,6 +85,7 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.LogIn
                     messages: errorMessages.ToArray()));
             }
 
+            // Why do we actually need this? It is not even saved/persisted.
             SessionAuthenticationToken sessionToken;
 
             try
@@ -104,7 +110,7 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.LogIn
             return new Tuple<int, QueryResult<SessionAuthenticationToken>>(200, _resultFactory.Create(
                     isSucceded: true,
                     resultItem: sessionToken,
-                    messages: new string[] { $"Login for {logInModel.Username} succeded. Enjoy!" }));
+                    messages: new string[] { $"Login for {logInModel.Username} succeded. Your session ends on {DateTime.Now.AddMinutes(user.SessionTimeMinutes)}", "Enjoy!"}));
         }
     }
 }

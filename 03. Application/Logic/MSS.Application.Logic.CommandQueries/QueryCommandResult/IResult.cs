@@ -4,7 +4,7 @@ namespace MSS.Application.Logic.CommandQueries.QueryCommandResult
 {
     public interface IResult
     {
-        bool IsSucceded { get; set; }
+        bool IsSucceeded { get; set; }
 
         string[] Messages { get; set; }
     }

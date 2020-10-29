@@ -8,7 +8,7 @@ namespace MSS.Application.Logic.CommandQueries.QueryCommandResult.Factory
         {
             return new CommandResult
             {
-                IsSucceded = isSucceded,
+                IsSucceeded = isSucceded,
                 Messages = messages
             };
         }

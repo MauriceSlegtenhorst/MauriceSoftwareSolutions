@@ -7,7 +7,7 @@ namespace MSS.Domain.Concrete.EntityAttributes.Tests
     public class EnumAuthorizeTests
     {
         [Fact]
-        public void EnumAuthorize_ConvertsEnumToString()
+        public void ConvertsEnumToString()
         {
             // Arrange
             var expected = "Administrator";
@@ -16,11 +16,12 @@ namespace MSS.Domain.Concrete.EntityAttributes.Tests
             // Act
             var actual = roles.ToString().Replace(" ", String.Empty);
 
+            // Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void EnumAuthorize_ConvertsEnumToCommaSeparatedString()
+        public void ConvertsEnumToCommaSeparatedString()
         {
             // Arrange
             var expected = "Employee,PrivilegedEmployee,Administrator";
@@ -29,6 +30,22 @@ namespace MSS.Domain.Concrete.EntityAttributes.Tests
             // Act
             var actual = roles.ToString().Replace(" ", String.Empty);
 
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void EnumAuthorize_ConvertsFlagsEnumToString()
+        {
+            // Arrange
+            var roles = Roles.Administrator | Roles.Employee | Roles.PrivilegedEmployee;
+            var expected = "Employee,PrivilegedEmployee,Administrator";
+            var enumAuthorizeAttribute = new EnumAuthorizeAttribute(roles);
+
+            // Act
+            var actual = enumAuthorizeAttribute.Roles;
+
+            // Assert
             Assert.Equal(expected, actual);
         }
     }

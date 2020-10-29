@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MSS.Application.Logic.CommandQueries.QueryCommandResult;
 using MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAccount;
 using MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountDetails;
 using MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountsList;
 using MSS.CrossCuttingConcerns.Infrastructure.ConstantData;
 using MSS.Domain.Concrete.EntityAttributes;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 
