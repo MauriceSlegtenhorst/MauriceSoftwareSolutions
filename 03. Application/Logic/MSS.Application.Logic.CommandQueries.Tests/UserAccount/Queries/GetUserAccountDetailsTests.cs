@@ -31,7 +31,7 @@ namespace MSS.Application.Logic.CommandQueries.Tests.UserAccount.Queries
         }
 
         [Fact]
-        public void DpInjectionWorked()
+        public void DpInjectionWorks()
         {
             Assert.NotNull(_logger);
             Assert.NotNull(_repository);

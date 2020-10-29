@@ -41,7 +41,7 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.Factory
         /// <exception cref="NullReferenceException">Thrown when the no user was found with the provided username string</exception>
         public async Task<SessionAuthenticationToken> Create(string userName, bool isPersistent)
         {
-            if (String.IsNullOrEmpty(userName))
+            if (String.IsNullOrWhiteSpace(userName))
                 throw new ArgumentException($"Parameter {nameof(userName)} cannot be null or empty.");
 
             var user = await _userManager.FindByNameAsync(userName);
@@ -49,18 +49,14 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.Factory
             if (user == null)
                 throw new NullReferenceException("No user was found with this username");
 
-            string javascriptUTCIssuedAt = new TimeSpan(DateTime.UtcNow.Ticks).TotalMilliseconds.ToString();
-            string javascriptUTCExpirationTime = new TimeSpan(DateTime.UtcNow.AddMinutes(user.SessionTimeMinutes).Ticks).TotalMilliseconds.ToString();
+            string javascriptUTCIssuedAt = DateTime.UnixEpoch.AddSeconds(new TimeSpan(DateTime.UtcNow.Ticks).TotalSeconds).ToString();
 
             var claims = new Collection<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
-                new Claim(JwtRegisteredClaimNames.Iss, _issuer),
-                new Claim(JwtRegisteredClaimNames.Aud, _audience),
                 new Claim(JwtRegisteredClaimNames.Iat, javascriptUTCIssuedAt),
-                new Claim(JwtRegisteredClaimNames.Exp, javascriptUTCExpirationTime),
                 new Claim(ClaimTypes.Name, $"{user.FirstName} {user.Affix?.ToString().Append(' ')}{user.LastName}"),
+                new Claim(ClaimTypes.NameIdentifier, user.UserName),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.IsPersistent, isPersistent.ToString())
             };
