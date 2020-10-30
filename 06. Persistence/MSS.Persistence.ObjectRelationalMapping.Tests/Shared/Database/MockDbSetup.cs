@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace MSS.Persistence.ObjectRelationalMapping.Tests.Shared.Database
 {
+    [Obsolete]
     public class MockDbSetup
     {
         public static Mock<DatabaseContext> MockDatabaseContext()
@@ -24,9 +25,18 @@ namespace MSS.Persistence.ObjectRelationalMapping.Tests.Shared.Database
             var accountData = new List<DomainUserAccount>();
             for (int i = 0; i < 50; i++)
             {
-                accountData.Add(new DomainUserAccount { Id = Guid.NewGuid().ToString(), Email = $"Bertus{i}@outlook.com", FirstName = $"FirstName{i}", Affix = $"Affix{i}", LastName=$"LastName{i}", 
-                    CreationDateUTC=DateTime.UtcNow, UserName = $"UserName{i}", PasswordHash = $"PasswordHash{i}", EmailConfirmed = ((random.Next(0,1) == 0) ? true : false), IsAdmitted = ((random.Next(0,1) == 0) ? true : false), 
-                    TwoFactorEnabled = ((random.Next(0,1) == 0) ? true : false)});
+                accountData.Add(new DomainUserAccount { 
+                    Id = Guid.NewGuid().ToString(), 
+                    Email = $"Bertus{i}@outlook.com",
+                    FirstName = $"FirstName{i}",
+                    Affix = $"Affix{i}", 
+                    LastName=$"LastName{i}", 
+                    CreationDateUTC=DateTime.UtcNow, 
+                    UserName = $"UserName{i}", 
+                    PasswordHash = $"PasswordHash{i}", 
+                    EmailConfirmed = random.Next(0,1) == 0, 
+                    IsAdmitted = random.Next(0,1) == 0, 
+                    TwoFactorEnabled = random.Next(0,1) == 0});
             }
 
             var qAccountData = accountData.AsQueryable();
@@ -44,7 +54,8 @@ namespace MSS.Persistence.ObjectRelationalMapping.Tests.Shared.Database
             var creditCategoryData = new List<DomainCreditCategory>();
             for (int i = 0; i < 5; i++)
             {
-                creditCategoryData.Add(new DomainCreditCategory { Id = Guid.NewGuid().ToString(), CreationDateUTC = DateTime.UtcNow, Title = $"Title{i}", SubTitle = $"SubTitle{i}" });
+                creditCategoryData.Add(new DomainCreditCategory { Id = Guid.NewGuid().ToString(), CreationDateUTC = DateTime.UtcNow, Title = $"Title{i}", 
+                    SubTitle = $"SubTitle{i}" });
             }
 
             var qCreditCategoryData = creditCategoryData.AsQueryable();
@@ -89,8 +100,6 @@ namespace MSS.Persistence.ObjectRelationalMapping.Tests.Shared.Database
 
             mockDatabaseContext.Setup(c => c.Credits).Returns(mockCreditsSet.Object);
             #endregion
-
-
 
             return mockDatabaseContext;
         }

@@ -12,7 +12,7 @@ namespace ObjectRelationalMapping.DatabaseConfigurations
         internal readonly string _sqlConnectionString;
         internal readonly string _issuerSigningKey;
         internal readonly TokenValidationParameters _tokenValidationParameters;
-        internal readonly IdentityOptions _identityOptions;
+        public readonly IdentityOptions _identityOptions;
 
         /// <exception cref="NullReferenceException">Thrown when one of the enviroment variables was not found. This results in an empty or null string variable which is not allowed.</exception>
         private DbConfigurations()

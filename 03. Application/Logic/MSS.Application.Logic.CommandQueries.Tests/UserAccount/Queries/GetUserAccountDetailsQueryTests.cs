@@ -1,5 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using Moq;
+﻿using DomainUserAccount = MSS.Domain.Concrete.DatabaseEntities.UserAccount.UserAccount;
+
+using Microsoft.Extensions.Logging;
 using MSS.Application.Infrastructure.Persistence;
 using MSS.Application.Logic.CommandQueries.QueryCommandResult;
 using MSS.Application.Logic.CommandQueries.QueryCommandResult.Factory;
@@ -8,26 +9,30 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using Xunit;
+using Microsoft.AspNetCore.Identity;
 
 namespace MSS.Application.Logic.CommandQueries.Tests.UserAccount.Queries
 {
-    public class GetUserAccountDetailsTests
+    public class GetUserAccountDetailsQueryTests
     {
         private readonly ILogger<GetUserAccountDetailQuery> _logger;
         private readonly IUserAccountRepository _repository;
         private readonly IQueryResultFactory _resultFactory;
         private readonly IGetUserAccountDetailQuery _query;
+        private readonly UserManager<DomainUserAccount> _userManager;
 
-        public GetUserAccountDetailsTests(
+        public GetUserAccountDetailsQueryTests(
             ILogger<GetUserAccountDetailQuery> logger,
             IUserAccountRepository repository,
             IQueryResultFactory resultFactory,
-            IGetUserAccountDetailQuery query)
+            IGetUserAccountDetailQuery query,
+            UserManager<DomainUserAccount> userManager)
         {
             _logger = logger;
             _repository = repository;
             _resultFactory = resultFactory;
-            _query = query;            
+            _query = query;
+            _userManager = userManager;
         }
 
         [Fact]
@@ -83,17 +88,15 @@ namespace MSS.Application.Logic.CommandQueries.Tests.UserAccount.Queries
         public async void Execute_HandlesDetailAccountCreationCorrectly()
         {
             // Arrange
+            var random = new Random();
             int expected = 200;
             var claims = new List<Claim>()
                 {
-                    new Claim(ClaimTypes.Name, "username"),
-                    new Claim(ClaimTypes.NameIdentifier, "userId"),
-                    new Claim(ClaimTypes.Email, "maurice.slegtenhorst@outlook.com"),
-                    new Claim("name", "John Doe"),
+                    new Claim(ClaimTypes.Email, "maurice.slegtenhorst@outlook.com")
                 };
             var identity = new ClaimsIdentity(claims, "TestAuthType");
             var claimsPrincipal = new ClaimsPrincipal(identity);
-
+         
             // Act
             var actual = await _query.Execute(claimsPrincipal);
 

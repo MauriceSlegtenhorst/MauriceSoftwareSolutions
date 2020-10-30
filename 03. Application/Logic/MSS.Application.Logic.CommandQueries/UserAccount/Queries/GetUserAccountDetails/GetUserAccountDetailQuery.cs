@@ -41,7 +41,7 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccoun
                  resultItem: null,
                  messages: new string[]
                  {
-                    "Your access token is invalid and or empty. Please try to login again.",
+                    "Your request data is invalid and or empty. Please try to login again.",
                     SORRY
                  }));
 
@@ -117,7 +117,7 @@ namespace MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccoun
                 resultItem: null,
                 messages: new string[]
                 {
-                    "More than one account was found. This problem has been reported and wil be fixed soon.",
+                    "More than one or no accounts were found. This problem has been reported and wil be fixed soon.",
                     SORRY
                 }));
             }

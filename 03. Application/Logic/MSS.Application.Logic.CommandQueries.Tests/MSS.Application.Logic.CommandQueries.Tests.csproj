@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\06. Persistence\MSS.Persistence.ObjectRelationalMapping.Tests\MSS.Persistence.ObjectRelationalMapping.Tests.csproj" />
     <ProjectReference Include="..\..\..\06. Persistence\MSS.Persistence.ObjectRelationalMapping\MSS.Persistence.ObjectRelationalMapping.csproj" />
     <ProjectReference Include="..\MSS.Application.Logic.CommandQueries\MSS.Application.Logic.CommandQueries.csproj" />
   </ItemGroup>

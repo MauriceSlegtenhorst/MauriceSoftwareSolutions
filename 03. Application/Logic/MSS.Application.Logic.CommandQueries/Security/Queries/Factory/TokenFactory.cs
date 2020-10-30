@@ -49,7 +49,7 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.Factory
             if (user == null)
                 throw new NullReferenceException("No user was found with this username");
 
-            string javascriptUTCIssuedAt = DateTime.UnixEpoch.AddSeconds(new TimeSpan(DateTime.UtcNow.Ticks).TotalSeconds).ToString();
+            string javascriptUTCIssuedAt = (DateTime.UtcNow - DateTime.UnixEpoch).TotalSeconds.ToString();
 
             var claims = new Collection<Claim>
             {
