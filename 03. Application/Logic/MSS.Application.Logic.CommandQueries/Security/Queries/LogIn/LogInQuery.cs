@@ -110,7 +110,7 @@ namespace MSS.Application.Logic.CommandQueries.Security.Queries.LogIn
             return new Tuple<int, QueryResult<SessionAuthenticationToken>>(200, _resultFactory.Create(
                     isSucceded: true,
                     resultItem: sessionToken,
-                    messages: new string[] { $"Login for {logInModel.Username} succeded. Your session ends on {DateTime.Now.AddMinutes(user.SessionTimeMinutes)}", "Enjoy!"}));
+                    messages: new string[] { $"Login for {logInModel.Username} succeded. Your session ends on {DateTime.Now.AddMinutes(user.SessionTimeMinutes)}.", "Enjoy!"}));
         }
     }
 }

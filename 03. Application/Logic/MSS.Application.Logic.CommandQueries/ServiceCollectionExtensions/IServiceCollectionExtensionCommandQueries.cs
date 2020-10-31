@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MSS.Application.Logic.CommandQueries.Security.Commands.LogOut;
 using MSS.Application.Logic.CommandQueries.Security.Queries.LogIn;
 using MSS.Application.Logic.CommandQueries.UserAccount.Commands.CreateUserAccount;
 using MSS.Application.Logic.CommandQueries.UserAccount.Queries.GetUserAccountDetails;
@@ -17,6 +18,7 @@ namespace MSS.Application.Logic.CommandQueries.ServiceCollectionExtensions
 
             // Security
             services.AddScoped<ILogInQuery, LogInQuery>();
+            services.AddScoped<ILogOutCommand, LogOutCommand>();
 
             return services;
         }

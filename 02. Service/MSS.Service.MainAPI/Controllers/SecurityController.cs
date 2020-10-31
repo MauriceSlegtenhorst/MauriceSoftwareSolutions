@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MSS.Application.Logic.CommandQueries.Security.Commands.LogOut;
 using MSS.Application.Logic.CommandQueries.Security.Queries.LogIn;
 using System;
 using System.Threading.Tasks;
@@ -11,12 +12,15 @@ namespace MSS.Service.MainAPI.Controllers
     public class SecurityController : ControllerBase
     {
         private readonly ILogInQuery _logInQuery;
+        private readonly ILogOutCommand _logOutCommand;
 
-        public SecurityController(ILogInQuery logInQuery)
+        public SecurityController(ILogInQuery logInQuery, ILogOutCommand logOutCommand)
         {
             _logInQuery = logInQuery;
+            _logOutCommand = logOutCommand;
         }
 
+        // Tested with postman
         [HttpPut(nameof(LogIn))]
         public async Task<IActionResult> LogIn([FromBody]LogInModel logInModel)
         {
@@ -28,7 +32,8 @@ namespace MSS.Service.MainAPI.Controllers
         [HttpGet(nameof(LogOut))]
         public async Task<IActionResult> LogOut()
         {
-            throw new NotImplementedException();
+            var commandTupleResult = await _logOutCommand.Execute();
+            return StatusCode(commandTupleResult.Item1, commandTupleResult.Item2);
         }
     }
 }

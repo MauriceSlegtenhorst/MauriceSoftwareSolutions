@@ -3,7 +3,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using ObjectRelationalMapping.Shared.Database;
 using Microsoft.AspNetCore.Identity;
-using ObjectRelationalMapping.DatabaseConfigurations;
 
 namespace MSS.Persistence.ObjectRelationalMapping.ServiceCollectionExtensions
 {
