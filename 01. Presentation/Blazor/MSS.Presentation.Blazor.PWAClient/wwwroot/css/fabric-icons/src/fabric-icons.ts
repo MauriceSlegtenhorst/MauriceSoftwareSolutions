@@ -1,0 +1,123 @@
+  // Your use of the content in the files referenced here is subject to the terms of the license at https://aka.ms/fabric-assets-license
+
+// tslint:disable:max-line-length
+
+import {
+  IIconOptions,
+  IIconSubset,
+  registerIcons
+} from '@uifabric/styling';
+
+export function initializeIcons(
+  baseUrl: string = '',
+  options?: IIconOptions
+): void {
+  const subset: IIconSubset = {
+    style: {
+      MozOsxFontSmoothing: 'grayscale',
+      WebkitFontSmoothing: 'antialiased',
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      speak: 'none'
+    },
+    fontFace: {
+      fontFamily: `"FabricMDL2Icons"`,
+      src: `url('${baseUrl}fabric-icons-0d99224e.woff') format('woff')`
+    },
+    icons: {
+      'AirplaneSolid': '\uEB4C',
+      'AlertSolid': '\uF331',
+      'AwayStatus': '\uEE6A',
+      'Balloons': '\uED7E',
+      'BeerMug': '\uF49E',
+      'Blocked2Solid': '\uF737',
+      'BlockedSiteSolid12': '\uF70A',
+      'BlockedSolid': '\uF531',
+      'BoxAdditionSolid': '\uF2D4',
+      'BoxCheckmarkSolid': '\uF2D7',
+      'BoxMultiplySolid': '\uF2D5',
+      'BoxPlaySolid': '\uF2D6',
+      'BoxSubtractSolid': '\uF2D3',
+      'BugSolid': '\uF335',
+      'BugWarning': '\uE357',
+      'BuildDefinition': '\uF6E9',
+      'ChatSolid': '\uF344',
+      'CheckboxCompositeReversed': '\uE73D',
+      'ChromeClose': '\uE8BB',
+      'CircleAdditionSolid': '\uF2E4',
+      'CirclePauseSolid': '\uF2D8',
+      'Clear': '\uE894',
+      'ClipboardSolid': '\uF5DC',
+      'Cloud': '\uE753',
+      'CloudDownload': '\uEBD3',
+      'CloudImportExport': '\uEE55',
+      'CloudNotSynced': '\uEC9C',
+      'CloudSearch': '\uEDE4',
+      'CloudUpload': '\uEC8E',
+      'CompletedSolid': '\uEC61',
+      'ConstructionConeSolid': '\uF339',
+      'CriticalErrorSolid': '\uF5C9',
+      'CrownSolid': '\uF336',
+      'DefenderApp': '\uE83D',
+      'DefenderBadge12': '\uF0FB',
+      'DiamondSolid': '\uF34C',
+      'DislikeSolid': '\uF3C0',
+      'Door': '\uEB75',
+      'DRM': '\uECA8',
+      'EditContact': '\uEFD3',
+      'EditSolid12': '\uF4B5',
+      'FabricFolderFill': '\uF0AA',
+      'FavoriteStarFill': '\uE735',
+      'FeedbackRequestSolid': '\uF359',
+      'FeedbackResponseSolid': '\uF35B',
+      'FlameSolid': '\uF1F3',
+      'GiftBoxSolid': '\uF341',
+      'Group': '\uE902',
+      'GroupRemove': '\uE495',
+      'Guitar': '\uF49B',
+      'HeadsetSolid': '\uF348',
+      'HeartFill': '\uEB52',
+      'HomeSolid': '\uEA8A',
+      'IncidentTriangle': '\uE814',
+      'Info2': '\uEA1F',
+      'InfoSolid': '\uF167',
+      'Insights': '\uE3AF',
+      'IssueSolid': '\uF448',
+      'LightningBoltSolid': '\uE45F',
+      'LikeSolid': '\uF3BF',
+      'LocalAdmin': '\uF1FB',
+      'LockSolid': '\uE9A2',
+      'MailSolid': '\uF343',
+      'MedalSolid': '\uF6B9',
+      'MegaphoneSolid': '\uF332',
+      'MessageFill': '\uEC70',
+      'MusicInCollectionFill': '\uEA36',
+      'OfficeChatSolid': '\uF710',
+      'PageSolid': '\uE729',
+      'PermissionsSolid': '\uF349',
+      'PictureFill': '\uF523',
+      'PieSingleSolid': '\uF530',
+      'PinnedSolid': '\uF676',
+      'POISolid': '\uF2D1',
+      'PresenceChickletVideo': '\uE979',
+      'ProtectionCenterLogo32': '\uF494',
+      'RewardsLogoSolid': '\uED4F',
+      'RingerSolid': '\uEF3A',
+      'Running': '\uEADA',
+      'SadSolid': '\uF33E',
+      'Settings': '\uE713',
+      'ShieldSolid': '\uF340',
+      'ShoppingCartSolid': '\uF342',
+      'SignOut': '\uF3B1',
+      'SingleBookmarkSolid': '\uEE00',
+      'TaskSolid': '\uF333',
+      'TestBeakerSolid': '\uF3A6',
+      'UnknownSolid': '\uF2E1',
+      'UnlockSolid': '\uF304',
+      'VideoSolid': '\uEA0C',
+      'WarningSolid': '\uF736'
+    }
+  };
+
+  registerIcons(subset, options);
+}

@@ -1,0 +1,63 @@
+﻿@using MSS.CrossCuttingConcerns.Infrastructure.ConstantData;
+
+<EditForm EditContext="editContext">
+    <DataAnnotationsValidator />
+    <div class="container-fluid bg-info p-2 mb-2">
+        <h5>Email requirements</h5>
+
+        <ul>
+            <li>Be of a respectable domain such as: <i>@String.Join(", ", Validation.VALID_EMAIL_DOMAINS)</i></li>
+            <li>Contain one @@ symbol</li>
+            <li>Contain atleast one dot (.)</li>
+        </ul>
+    </div>
+
+    <div class="container-fluid bg-info p-2 mb-2">
+        <h5>Password requirements</h5>
+
+        <ul>
+            @for (int i = 0; i < Validation.VALID_PASSWORD_REQUIREMENTS.Length; i++)
+            {
+                <li>@Validation.VALID_PASSWORD_REQUIREMENTS[i]</li>
+            }
+        </ul>
+    </div>
+
+    <label>Email</label>
+    <div class="row mb-4">
+        <div class="col">
+            <TextBoxComponent Type="email" PlaceHolderText="email"/>
+
+        </div>
+    </div>
+
+    <label>Password</label>
+    <div class="row mb-2">
+        <div class="col">
+            <TextBoxComponent Type="@(showPassword ? "text" : "password")" />
+            <ValidationMessage For="() => inputModel.Password" />
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <TextBoxComponent Type="@(showPassword ? "text" : "password")" />
+            <ValidationMessage For="() => inputModel.PasswordTwo" />
+        </div>
+
+        <div class="col-sm col-sm-auto">
+            <input type="checkbox" @bind-value="showPassword" />
+            <label>Show</label>
+        </div>
+    </div>
+
+    <div class="row justify-content-end">
+        <div class="col-auto">
+            <button @onclick="async () => await RequestRegisterAsync()" class="@(canSubmit ? null : "disabled")" Disabled="@(canSubmit == false)">Submit</button>
+        </div>
+
+        <div class="col-auto">
+            <button @onclick="async () => await DialogService.Close()">Cancel</button>
+        </div>
+    </div>
+</EditForm>

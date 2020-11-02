@@ -28,9 +28,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BF696B4A-F2DC-44EA-8A1C-F4B566E1A436}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{FC143ABB-5E8D-49A0-9457-EAF5223203A1}"
-	ProjectSection(SolutionItems) = preProject
-		Placeholder.txt = Placeholder.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{42FBB335-42BA-4C36-ADF5-5BADD8D3C919}"
 	ProjectSection(SolutionItems) = preProject
@@ -79,9 +76,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.Application.Logic.Comma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.Persistence.ObjectRelationalMapping.Tests", "06. Persistence\MSS.Persistence.ObjectRelationalMapping.Tests\MSS.Persistence.ObjectRelationalMapping.Tests.csproj", "{99357E84-7D27-42A3-92A8-F0B563B22484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSS.Domain.Concrete.EntityAttributes", "04. Domain\Concrete\MSS.Domain.Concrete.EntityAttributes\MSS.Domain.Concrete.EntityAttributes.csproj", "{0ADC0685-9D9E-405B-B6B0-6828C8A8E27D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.Domain.Concrete.EntityAttributes", "04. Domain\Concrete\MSS.Domain.Concrete.EntityAttributes\MSS.Domain.Concrete.EntityAttributes.csproj", "{0ADC0685-9D9E-405B-B6B0-6828C8A8E27D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSS.Domain.Concrete.EntityAttributes.Tests", "04. Domain\Concrete\MSS.Domain.Concrete.EntityAttributes.Tests\MSS.Domain.Concrete.EntityAttributes.Tests.csproj", "{93FF2D09-0FC7-4D27-A251-DF6467A69536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.Domain.Concrete.EntityAttributes.Tests", "04. Domain\Concrete\MSS.Domain.Concrete.EntityAttributes.Tests\MSS.Domain.Concrete.EntityAttributes.Tests.csproj", "{93FF2D09-0FC7-4D27-A251-DF6467A69536}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.Presentation.Blazor.PWAClient", "01. Presentation\Blazor\MSS.Presentation.Blazor.PWAClient\MSS.Presentation.Blazor.PWAClient.csproj", "{C9F0DAD2-9309-4401-A503-0DEF5D7FBFDD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.CrossCuttingConcerns.Concrete.Validation", "00. CrossCuttingConcerns\Concrete\MSS.CrossCuttingConcerns.Concrete.Validation\MSS.CrossCuttingConcerns.Concrete.Validation.csproj", "{4CCF1756-ED1F-4184-B597-E28E232C7EC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.CrossCuttingConcerns.Infrastructure.Validation", "00. CrossCuttingConcerns\Infrastructure\MSS.CrossCuttingConcerns.Infrastructure.Validation\MSS.CrossCuttingConcerns.Infrastructure.Validation.csproj", "{D23BED4D-9830-4671-8A63-722110FDAFFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +140,18 @@ Global
 		{93FF2D09-0FC7-4D27-A251-DF6467A69536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93FF2D09-0FC7-4D27-A251-DF6467A69536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93FF2D09-0FC7-4D27-A251-DF6467A69536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F0DAD2-9309-4401-A503-0DEF5D7FBFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F0DAD2-9309-4401-A503-0DEF5D7FBFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F0DAD2-9309-4401-A503-0DEF5D7FBFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F0DAD2-9309-4401-A503-0DEF5D7FBFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CCF1756-ED1F-4184-B597-E28E232C7EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCF1756-ED1F-4184-B597-E28E232C7EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCF1756-ED1F-4184-B597-E28E232C7EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCF1756-ED1F-4184-B597-E28E232C7EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D23BED4D-9830-4671-8A63-722110FDAFFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23BED4D-9830-4671-8A63-722110FDAFFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23BED4D-9830-4671-8A63-722110FDAFFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23BED4D-9830-4671-8A63-722110FDAFFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,6 +180,9 @@ Global
 		{99357E84-7D27-42A3-92A8-F0B563B22484} = {C77BB288-D39D-4E56-89B1-8D33EFBF1872}
 		{0ADC0685-9D9E-405B-B6B0-6828C8A8E27D} = {DCD33BE2-932D-4B93-B36E-327A9B2443DE}
 		{93FF2D09-0FC7-4D27-A251-DF6467A69536} = {DCD33BE2-932D-4B93-B36E-327A9B2443DE}
+		{C9F0DAD2-9309-4401-A503-0DEF5D7FBFDD} = {FC143ABB-5E8D-49A0-9457-EAF5223203A1}
+		{4CCF1756-ED1F-4184-B597-E28E232C7EC0} = {C6B468A1-D281-4379-BC90-CBA8E23CF6B8}
+		{D23BED4D-9830-4671-8A63-722110FDAFFE} = {BF696B4A-F2DC-44EA-8A1C-F4B566E1A436}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72ED30C6-37A9-4221-B4F6-BCFB16C72CD8}

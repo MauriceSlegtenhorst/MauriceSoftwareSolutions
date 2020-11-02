@@ -1,0 +1,16 @@
+﻿@import "fabric-icons-inline.scss";
+@import "Dialog/modal-dialog.scss";
+@import "colors.scss";
+@import "controls.scss";
+
+
+body {
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    background-color: $BLACK;
+    color: $SMOKE_WHITE;
+}
+
+

@@ -1,0 +1,374 @@
+{
+  "fontName": "fabric-icons",
+  "fontFamilyName": "FabricMDL2Icons",
+  "excludeGlyphs": false,
+  "excludeThirdPartyIcons": false,
+  "chunkSubsets": false,
+  "hashFontFileName": true,
+  "glyphs": [
+    {
+      "name": "AirplaneSolid",
+      "unicode": "EB4C"
+    },
+    {
+      "name": "AlertSolid",
+      "unicode": "F331"
+    },
+    {
+      "name": "AwayStatus",
+      "unicode": "EE6A"
+    },
+    {
+      "name": "Balloons",
+      "unicode": "ED7E"
+    },
+    {
+      "name": "BeerMug",
+      "unicode": "F49E"
+    },
+    {
+      "name": "Blocked2Solid",
+      "unicode": "F737"
+    },
+    {
+      "name": "BlockedSiteSolid12",
+      "unicode": "F70A"
+    },
+    {
+      "name": "BlockedSolid",
+      "unicode": "F531"
+    },
+    {
+      "name": "BoxAdditionSolid",
+      "unicode": "F2D4"
+    },
+    {
+      "name": "BoxCheckmarkSolid",
+      "unicode": "F2D7"
+    },
+    {
+      "name": "BoxMultiplySolid",
+      "unicode": "F2D5"
+    },
+    {
+      "name": "BoxPlaySolid",
+      "unicode": "F2D6"
+    },
+    {
+      "name": "BoxSubtractSolid",
+      "unicode": "F2D3"
+    },
+    {
+      "name": "BugSolid",
+      "unicode": "F335"
+    },
+    {
+      "name": "BugWarning",
+      "unicode": "E357"
+    },
+    {
+      "name": "BuildDefinition",
+      "unicode": "F6E9"
+    },
+    {
+      "name": "ChatSolid",
+      "unicode": "F344"
+    },
+    {
+      "name": "CheckboxCompositeReversed",
+      "unicode": "E73D"
+    },
+    {
+      "name": "ChromeClose",
+      "unicode": "E8BB"
+    },
+    {
+      "name": "CircleAdditionSolid",
+      "unicode": "F2E4"
+    },
+    {
+      "name": "CirclePauseSolid",
+      "unicode": "F2D8"
+    },
+    {
+      "name": "Clear",
+      "unicode": "E894"
+    },
+    {
+      "name": "ClipboardSolid",
+      "unicode": "F5DC"
+    },
+    {
+      "name": "Cloud",
+      "unicode": "E753"
+    },
+    {
+      "name": "CloudDownload",
+      "unicode": "EBD3"
+    },
+    {
+      "name": "CloudImportExport",
+      "unicode": "EE55"
+    },
+    {
+      "name": "CloudNotSynced",
+      "unicode": "EC9C"
+    },
+    {
+      "name": "CloudSearch",
+      "unicode": "EDE4"
+    },
+    {
+      "name": "CloudUpload",
+      "unicode": "EC8E"
+    },
+    {
+      "name": "CompletedSolid",
+      "unicode": "EC61"
+    },
+    {
+      "name": "ConstructionConeSolid",
+      "unicode": "F339"
+    },
+    {
+      "name": "CriticalErrorSolid",
+      "unicode": "F5C9"
+    },
+    {
+      "name": "CrownSolid",
+      "unicode": "F336"
+    },
+    {
+      "name": "DefenderApp",
+      "unicode": "E83D"
+    },
+    {
+      "name": "DefenderBadge12",
+      "unicode": "F0FB"
+    },
+    {
+      "name": "DiamondSolid",
+      "unicode": "F34C"
+    },
+    {
+      "name": "DislikeSolid",
+      "unicode": "F3C0"
+    },
+    {
+      "name": "Door",
+      "unicode": "EB75"
+    },
+    {
+      "name": "DRM",
+      "unicode": "ECA8"
+    },
+    {
+      "name": "EditContact",
+      "unicode": "EFD3"
+    },
+    {
+      "name": "EditSolid12",
+      "unicode": "F4B5"
+    },
+    {
+      "name": "FabricFolderFill",
+      "unicode": "F0AA"
+    },
+    {
+      "name": "FavoriteStarFill",
+      "unicode": "E735"
+    },
+    {
+      "name": "FeedbackRequestSolid",
+      "unicode": "F359"
+    },
+    {
+      "name": "FeedbackResponseSolid",
+      "unicode": "F35B"
+    },
+    {
+      "name": "FlameSolid",
+      "unicode": "F1F3"
+    },
+    {
+      "name": "GiftBoxSolid",
+      "unicode": "F341"
+    },
+    {
+      "name": "Group",
+      "unicode": "E902"
+    },
+    {
+      "name": "GroupRemove",
+      "unicode": "E495"
+    },
+    {
+      "name": "Guitar",
+      "unicode": "F49B"
+    },
+    {
+      "name": "HeadsetSolid",
+      "unicode": "F348"
+    },
+    {
+      "name": "HeartFill",
+      "unicode": "EB52"
+    },
+    {
+      "name": "HomeSolid",
+      "unicode": "EA8A"
+    },
+    {
+      "name": "IncidentTriangle",
+      "unicode": "E814"
+    },
+    {
+      "name": "Info2",
+      "unicode": "EA1F"
+    },
+    {
+      "name": "InfoSolid",
+      "unicode": "F167"
+    },
+    {
+      "name": "Insights",
+      "unicode": "E3AF"
+    },
+    {
+      "name": "IssueSolid",
+      "unicode": "F448"
+    },
+    {
+      "name": "LightningBoltSolid",
+      "unicode": "E45F"
+    },
+    {
+      "name": "LikeSolid",
+      "unicode": "F3BF"
+    },
+    {
+      "name": "LocalAdmin",
+      "unicode": "F1FB"
+    },
+    {
+      "name": "LockSolid",
+      "unicode": "E9A2"
+    },
+    {
+      "name": "MailSolid",
+      "unicode": "F343"
+    },
+    {
+      "name": "MedalSolid",
+      "unicode": "F6B9"
+    },
+    {
+      "name": "MegaphoneSolid",
+      "unicode": "F332"
+    },
+    {
+      "name": "MessageFill",
+      "unicode": "EC70"
+    },
+    {
+      "name": "MusicInCollectionFill",
+      "unicode": "EA36"
+    },
+    {
+      "name": "OfficeChatSolid",
+      "unicode": "F710"
+    },
+    {
+      "name": "PageSolid",
+      "unicode": "E729"
+    },
+    {
+      "name": "PermissionsSolid",
+      "unicode": "F349"
+    },
+    {
+      "name": "PictureFill",
+      "unicode": "F523"
+    },
+    {
+      "name": "PieSingleSolid",
+      "unicode": "F530"
+    },
+    {
+      "name": "PinnedSolid",
+      "unicode": "F676"
+    },
+    {
+      "name": "POISolid",
+      "unicode": "F2D1"
+    },
+    {
+      "name": "PresenceChickletVideo",
+      "unicode": "E979"
+    },
+    {
+      "name": "ProtectionCenterLogo32",
+      "unicode": "F494"
+    },
+    {
+      "name": "RewardsLogoSolid",
+      "unicode": "ED4F"
+    },
+    {
+      "name": "RingerSolid",
+      "unicode": "EF3A"
+    },
+    {
+      "name": "Running",
+      "unicode": "EADA"
+    },
+    {
+      "name": "SadSolid",
+      "unicode": "F33E"
+    },
+    {
+      "name": "Settings",
+      "unicode": "E713"
+    },
+    {
+      "name": "ShieldSolid",
+      "unicode": "F340"
+    },
+    {
+      "name": "ShoppingCartSolid",
+      "unicode": "F342"
+    },
+    {
+      "name": "SignOut",
+      "unicode": "F3B1"
+    },
+    {
+      "name": "SingleBookmarkSolid",
+      "unicode": "EE00"
+    },
+    {
+      "name": "TaskSolid",
+      "unicode": "F333"
+    },
+    {
+      "name": "TestBeakerSolid",
+      "unicode": "F3A6"
+    },
+    {
+      "name": "UnknownSolid",
+      "unicode": "F2E1"
+    },
+    {
+      "name": "UnlockSolid",
+      "unicode": "F304"
+    },
+    {
+      "name": "VideoSolid",
+      "unicode": "EA0C"
+    },
+    {
+      "name": "WarningSolid",
+      "unicode": "F736"
+    }
+  ]
+}

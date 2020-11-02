@@ -114,7 +114,7 @@ namespace MSS.Persistence.ObjectRelationalMapping.Tests.Shared.Database
                 });
             }
 
-            long expectedAffectedEntries = accountData.LongCount();
+            long expectedAffectedEntries = accountData.Count;
 
             _dbContext.Set<DomainUserAccount>().AddRange(accountData);
 

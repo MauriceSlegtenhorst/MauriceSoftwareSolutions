@@ -1,0 +1,11 @@
+﻿<div class="mss-modal @dialogCSS">
+    <div class="mss-modal-dialog">
+        <div class="mss-modal-dialog-header">
+            <span class="mss-modal-dialog-header-title">@title</span>
+            <i class="ms-Icon ms-Icon--Clear mss-modal-dialog-header-close-button" @onclick="async () => await Close()" />
+        </div>
+        <div class="mss-modal-dialog-body">
+            @content
+        </div>
+    </div>
+</div>
