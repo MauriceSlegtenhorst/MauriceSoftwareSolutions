@@ -16,7 +16,7 @@
             "Have a maximum length of 54"
         };
 
-        public static readonly string[] VALID_EMAIL_DOMAINS = new string[] { "gmail", "yahoo", "hotmail", "outlook", "icloud", "me", "mac", "aol", "msn", "wanadoo", "comcast", "live", "rediffmail", "outlook", "googlemail", "tiscali", "t-online", "telenet" };
+        public static readonly string[] VALID_EMAIL_DOMAINS = new string[] { "gmail", "yahoo", "hotmail", "outlook", "icloud", "me", "mac", "aol", "msn", "wanadoo", "comcast", "live", "rediffmail", "outlook", "googlemail", "tiscali", "t-online", "telenet", "protonmail" };
         public const byte NAME_MAX_LENGTH = 20;
         public const byte NAME_MIN_LENGTH = 1;
     }

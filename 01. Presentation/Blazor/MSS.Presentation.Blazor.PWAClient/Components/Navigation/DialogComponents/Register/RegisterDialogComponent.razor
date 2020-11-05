@@ -1,8 +1,8 @@
 ﻿@using MSS.CrossCuttingConcerns.Infrastructure.ConstantData;
 
-<EditForm EditContext="editContext">
-    <DataAnnotationsValidator />
-    <div class="container-fluid bg-info p-2 mb-2">
+<EditForm EditContext="editContext" OnValidSubmit="RequestRegisterAsync">
+    <ObjectGraphDataAnnotationsValidator />
+    <div class="mss-container mss-container-info mb-5">
         <h5>Email requirements</h5>
 
         <ul>
@@ -12,7 +12,7 @@
         </ul>
     </div>
 
-    <div class="container-fluid bg-info p-2 mb-2">
+    <div class="mss-container mss-container-info mb-5">
         <h5>Password requirements</h5>
 
         <ul>
@@ -23,26 +23,24 @@
         </ul>
     </div>
 
-    <label>Email</label>
     <div class="row mb-4">
         <div class="col">
-            <TextBoxComponent Type="email" PlaceHolderText="email"/>
-
+            <MSSTextBox TextBoxCSS="@emailCSS" IconCSS="@emailIconCSS" Label="Email" Type="email" @bind-Value="inputModel.Email" PlaceHolderText="Enter a valid e-mail address" 
+                        ValidationFor="() => inputModel.Email"/>
         </div>
     </div>
 
-    <label>Password</label>
     <div class="row mb-2">
         <div class="col">
-            <TextBoxComponent Type="@(showPassword ? "text" : "password")" />
-            <ValidationMessage For="() => inputModel.Password" />
+            <MSSTextBox TextBoxCSS="@passwordOneCSS" IconCSS="@passwordOneIconCSS" Label="Password" Type="@(showPassword ? "text" : "password")" @bind-Value="inputModel.Password" 
+                        PlaceHolderText="Enter password" ValidationFor="() => inputModel.Password" />
         </div>
     </div>
 
     <div class="row mb-4">
         <div class="col">
-            <TextBoxComponent Type="@(showPassword ? "text" : "password")" />
-            <ValidationMessage For="() => inputModel.PasswordTwo" />
+            <MSSTextBox TextBoxCSS="@passwordTwoCSS" IconCSS="@passwordTwoIconCSS" Type="@(showPassword ? "text" : "password")" @bind-Value="inputModel.PasswordTwo" 
+                        PlaceHolderText="Repeat password" ValidationFor="() => inputModel.PasswordTwo" />
         </div>
 
         <div class="col-sm col-sm-auto">
@@ -53,7 +51,7 @@
 
     <div class="row justify-content-end">
         <div class="col-auto">
-            <button @onclick="async () => await RequestRegisterAsync()" class="@(canSubmit ? null : "disabled")" Disabled="@(canSubmit == false)">Submit</button>
+            <button type="submit" @onclick="async () => await RequestRegisterAsync()" class="@(canSubmit ? null : "disabled")">Submit</button>
         </div>
 
         <div class="col-auto">

@@ -13,6 +13,7 @@
     <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.0-rc.2.20475.17" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.0-rc.2.20475.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.DataAnnotations.Validation" Version="3.2.0-rc1.20223.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.0-rc.2.20475.17" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0-rc.2.20475.17" PrivateAssets="all" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0-rc.2.20475.5" />
@@ -31,7 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\00. CrossCuttingConcerns\Concrete\MSS.CrossCuttingConcerns.Concrete.Validation\MSS.CrossCuttingConcerns.Concrete.Validation.csproj" />
+    <ProjectReference Include="..\..\..\00. CrossCuttingConcerns\Infrastructure\MSS.CrossCuttingConcerns.Infrastructure.ConstantData\MSS.CrossCuttingConcerns.Infrastructure.ConstantData.csproj" />
+    <ProjectReference Include="..\..\..\00. CrossCuttingConcerns\Infrastructure\MSS.CrossCuttingConcerns.Infrastructure.Validation\MSS.CrossCuttingConcerns.Infrastructure.Validation.csproj" />
   </ItemGroup>
 
 </Project>

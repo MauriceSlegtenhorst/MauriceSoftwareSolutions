@@ -21,9 +21,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06. Persistence", "06. Persistence", "{C77BB288-D39D-4E56-89B1-8D33EFBF1872}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Concrete", "Concrete", "{C6B468A1-D281-4379-BC90-CBA8E23CF6B8}"
-	ProjectSection(SolutionItems) = preProject
-		Placeholder.txt = Placeholder.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BF696B4A-F2DC-44EA-8A1C-F4B566E1A436}"
 EndProject

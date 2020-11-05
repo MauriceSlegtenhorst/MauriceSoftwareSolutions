@@ -1,0 +1,30 @@
+﻿@import "../colors.scss";
+@import "../distances.scss";
+
+button {
+    background-color: transparent;
+    border-color: $BLUE;
+    color: $SMOKE_WHITE;
+    padding-top: $STANDARD_DISTANCE * 1.5;
+    padding-bottom: $STANDARD_DISTANCE * 1.5;
+    padding-left: $STANDARD_DISTANCE * 2.3;
+    padding-right: $STANDARD_DISTANCE * 2.3;
+
+    &:disabled {
+        background-color: rgba(255,255,255, 0.4);
+        border-color: $GRAY;
+        color: $GRAY;
+    }
+
+    &:hover {
+        outline: none;
+        background-color: rgba($SMOKE_WHITE, 0.1);
+    }
+
+    &:focus {
+        outline: none;
+        background-color: rgba($SMOKE_WHITE, 0.01);
+        border-color: $BLUE_LIGHT;
+        color: $BLUE_LIGHT;
+    }
+}

@@ -2,6 +2,7 @@
 @import "Dialog/modal-dialog.scss";
 @import "colors.scss";
 @import "controls.scss";
+@import "navbar.scss";
 
 
 body {
@@ -13,4 +14,15 @@ body {
     color: $SMOKE_WHITE;
 }
 
+::-webkit-scrollbar {
+    width: $STANDARD_DISTANCE * 3;
+
+    &-thumb {
+        background-color: $BLUE;
+
+        &:hover{
+            background-color: rgba($BLUE, 0.8);
+        }
+    }
+}
 

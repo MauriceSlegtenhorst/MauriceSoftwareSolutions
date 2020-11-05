@@ -1,0 +1,17 @@
+﻿@import "../colors.scss";
+@import "../distances.scss";
+
+input[type=checkbox] {
+    border-color: $BLUE !important;
+    background-color: transparent !important;
+    height: $STANDARD_DISTANCE * 4;
+    width: $STANDARD_DISTANCE * 4;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:checked {
+        color: $BLUE;
+    }
+}

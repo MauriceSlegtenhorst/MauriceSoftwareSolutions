@@ -1,0 +1,20 @@
+﻿@inherits MSSTextBoxBase
+
+<!--<input class="mss-text-box" type="@Type" placeholder="@PlaceHolderText" @bind-value="@Value">-->
+@*<span class="focus-border">
+    <i></i>
+</span>*@
+
+
+@if (!string.IsNullOrWhiteSpace(Label))
+{
+    <label class="mss-text-box-label" for="@Id">@Label</label>
+}
+<div>
+    <i class="mss-text-box-icon @IconCSS" />
+    <input id="@Id" class="mss-text-box @TextBoxCSS" @bind="@CurrentValue" placeholder="@PlaceHolderText" />
+    <span class="mss-text-box-validation-error">
+        <ValidationMessage For="@ValidationFor" />
+    </span>
+</div>
+

@@ -1,14 +1,15 @@
 ﻿using CrossCuttingValidation = MSS.CrossCuttingConcerns.Infrastructure.ConstantData.Validation;
 
-using MSS.CrossCuttingConcerns.Infrastructure.Validation;
-using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace MSS.CrossCuttingConcerns.Concrete.Validation
+namespace MSS.CrossCuttingConcerns.Infrastructure.Validation
 {
-    public sealed class EmailVerificationService : IEmailVerificationService
+    public sealed class EmailVerificationService
     {
-        public ValidationResult IsDomainValid(string email, ValidationContext validationContext)
+        private EmailVerificationService() { }
+
+        public static ValidationResult IsDomainValid(string email, ValidationContext validationContext)
         {
             for (int i = 0; i < CrossCuttingValidation.VALID_EMAIL_DOMAINS.Length; i++)
             {
